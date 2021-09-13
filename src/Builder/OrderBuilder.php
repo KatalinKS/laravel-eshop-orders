@@ -8,6 +8,6 @@ class OrderBuilder
 {
     public function build(): Order
     {
-        return new Order();
+        return Order::create();
     }
 }
