@@ -5,6 +5,7 @@ namespace KatalinKS\Order;
 use App\Services\Eshop\Cart\Interfaces\CartObj;
 use KatalinKS\Order\Builder\OrderBuilder;
 use KatalinKS\Order\Builder\OrderItemBuilder;
+use KatalinKS\PriceList\Interfaces\Objects\PriceListObj;
 
 class Order
 {
@@ -14,9 +15,14 @@ class Order
     ) {
     }
 
-    public function create(CartObj $cart)
+    public function create(CartObj $cart, PriceListObj $priceList)
     {
-        $order = $this->orderBuilder->build();
+        $order = $this->orderBuilder
+            ->fresh()
+            ->setPriceId($priceList->getId())
+            ->get();
+
+        $order->save();
 
         foreach ($cart->getItems() as $item) {
             $order->items()->save($this->itemBuilder->build($item));

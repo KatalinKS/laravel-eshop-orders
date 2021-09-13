@@ -102,4 +102,11 @@ class Order extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
+
+    public function setPriceId(int $priceId): self
+    {
+        $this->setAttribute('price_id', $priceId);
+
+        return $this;
+    }
 }

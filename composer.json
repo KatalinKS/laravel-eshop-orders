@@ -17,8 +17,9 @@
     ],
     "require": {
         "php": "^8.0",
-        "spatie/laravel-package-tools": "^1.4.3",
-        "illuminate/contracts": "^8.37"
+        "illuminate/contracts": "^8.37",
+        "katalinks/eshop-price-lists-laravel": "dev-main",
+        "spatie/laravel-package-tools": "^1.4.3"
     },
     "require-dev": {
         "brianium/paratest": "^6.2",
@@ -57,6 +58,12 @@
             }
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/KatalinKS/eshop-price-lists-laravel"
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true
 }
