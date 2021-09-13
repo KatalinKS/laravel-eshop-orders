@@ -2,9 +2,9 @@
 
 namespace KatalinKS\Order;
 
+use KatalinKS\Order\Commands\OrderCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use KatalinKS\Order\Commands\OrderCommand;
 
 class OrderServiceProvider extends PackageServiceProvider
 {
