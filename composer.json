@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "katalinks/laravel-eshop-orders",
+    "description": "Система заказов для Laravel",
     "keywords": [
-        ":vendor_name",
+        "KatalinKS",
         "laravel",
-        ":package_slug"
+        "laravel-eshop-orders"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/katalinks/laravel-eshop-orders",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Skej",
+            "email": "konstantin@katalin.ru",
             "role": "Developer"
         }
     ],
@@ -30,13 +30,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "KatalinKS\\Order\\": "src",
+            "KatalinKS\\Order\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "KatalinKS\\Order\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -50,10 +50,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "KatalinKS\\Order\\OrderServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\SkeletonFacade"
+                "Order": "KatalinKS\\Order\\OrderFacade"
             }
         }
     },
