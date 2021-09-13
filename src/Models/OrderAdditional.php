@@ -9,7 +9,8 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 
 class OrderAdditional extends Model implements HasMedia
 {
-    use HasFactory, InteractsWithMedia;
+    use HasFactory;
+    use InteractsWithMedia;
 
     public $timestamps = false;
 
@@ -22,6 +23,4 @@ class OrderAdditional extends Model implements HasMedia
     {
         $this->addMediaCollection('order_files');
     }
-
-
 }

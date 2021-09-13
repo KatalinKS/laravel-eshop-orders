@@ -41,15 +41,11 @@ class OrderBuyer extends Model
 
     public function getEntityAttribute()
     {
-
         return $this->getRelation('entity');
-
     }
 
     public function getLegalAttribute()
     {
-
         return $this->getRelation('legal');
-
     }
 }
