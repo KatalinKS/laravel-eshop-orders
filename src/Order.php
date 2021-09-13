@@ -17,6 +17,7 @@ class Order
 
     public function create(CartObj $cart)
     {
+        dd('Order');
         $order = $this->orderBuilder->build();
 
         foreach ($cart->getItems() as $item)
