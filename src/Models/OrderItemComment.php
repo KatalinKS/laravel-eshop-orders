@@ -13,5 +13,4 @@ class OrderItemComment extends Model
         'comment',
         'order_item_id',
     ];
-
 }

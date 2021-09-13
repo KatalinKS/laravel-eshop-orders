@@ -63,9 +63,6 @@ class Order extends Model
         return $this->getRelationValue('delivery');
     }
 
-
-
-
     public function price(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(PriceList::class, 'price_id');
@@ -105,6 +102,4 @@ class Order extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
-
-
 }

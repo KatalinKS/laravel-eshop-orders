@@ -26,7 +26,8 @@ class OrderDelivery extends Model
         return $this->belongsTo(OrderConsignee::class);
     }
 
-    public function address(): BelongsTo    {
+    public function address(): BelongsTo
+    {
         return $this->belongsTo(OrderDeliveryAddress::class);
     }
 

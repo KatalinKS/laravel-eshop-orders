@@ -1,12 +1,9 @@
 <?php
 
-
 namespace KatalinKS\Order\Builder;
 
-
-use KatalinKS\Order\Models\Order;
-use KatalinKS\Order\Models\OrderItem;
 use App\Services\Eshop\Cart\Interfaces\Item\CartItemObj;
+use KatalinKS\Order\Models\OrderItem;
 
 class OrderItemBuilder
 {

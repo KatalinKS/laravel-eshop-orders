@@ -11,8 +11,7 @@ class Order
     public function __construct(
         private OrderBuilder $orderBuilder,
         private OrderItemBuilder $itemBuilder
-    )
-    {
+    ) {
     }
 
     public function create(CartObj $cart)
@@ -20,8 +19,7 @@ class Order
         dd('Order');
         $order = $this->orderBuilder->build();
 
-        foreach ($cart->getItems() as $item)
-        {
+        foreach ($cart->getItems() as $item) {
             $order->items()->save($this->itemBuilder->build($item));
         }
     }
