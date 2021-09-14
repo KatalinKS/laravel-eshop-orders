@@ -2,12 +2,12 @@
 
 namespace KatalinKS\Order;
 
-use App\Models\Dictionary\OrderItemStatus;
-use App\Models\Dictionary\OrderStatus;
 use KatalinKS\Order\Commands\OrderCommand;
 use KatalinKS\Order\Contracts\Dictionary\OrderItemStatus as OrderItemStatusContract;
 use KatalinKS\Order\Contracts\Dictionary\OrderStatus as OrderStatusContract;
 use \KatalinKS\Order\Contracts\Order as OrderContract;
+use KatalinKS\Order\Models\OrderItemStatus;
+use KatalinKS\Order\Models\OrderStatus;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
