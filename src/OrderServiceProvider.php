@@ -6,8 +6,8 @@ use KatalinKS\Order\Commands\OrderCommand;
 use KatalinKS\Order\Contracts\Dictionary\OrderItemStatus as OrderItemStatusContract;
 use KatalinKS\Order\Contracts\Dictionary\OrderStatus as OrderStatusContract;
 use \KatalinKS\Order\Contracts\Order as OrderContract;
-use KatalinKS\Order\Models\OrderItemStatus;
-use KatalinKS\Order\Models\OrderStatus;
+use KatalinKS\Order\Models\Dictionary\OrderItemStatus;
+use KatalinKS\Order\Models\Dictionary\OrderStatus;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 

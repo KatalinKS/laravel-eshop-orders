@@ -1,6 +1,6 @@
 <?php
 
-namespace KatalinKS\Order\Models;
+namespace KatalinKS\Order\Models\Dictionary;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
