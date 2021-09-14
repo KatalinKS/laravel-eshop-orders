@@ -109,4 +109,12 @@ class Order extends Model
 
         return $this;
     }
+
+    public function setProcessingOfficeId(int $officeId): self
+    {
+        $this->setAttribute('processing_office_id', $officeId);
+
+        return $this;
+    }
 }
+

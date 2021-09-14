@@ -3,6 +3,7 @@
 namespace KatalinKS\Order;
 
 use App\Services\Eshop\Cart\Interfaces\CartObj;
+use KatalinKS\CompanyPlaces\Interfaces\CompanyPlaces;
 use KatalinKS\Order\Builder\OrderBuilder;
 use KatalinKS\Order\Builder\OrderItemBuilder;
 use KatalinKS\PriceList\Interfaces\Objects\PriceListObj;
@@ -11,7 +12,8 @@ class Order
 {
     public function __construct(
         private OrderBuilder $orderBuilder,
-        private OrderItemBuilder $itemBuilder
+        private OrderItemBuilder $itemBuilder,
+        private CompanyPlaces $companyPlaces
     ) {
     }
 
@@ -20,6 +22,8 @@ class Order
         $order = $this->orderBuilder
             ->fresh()
             ->setPriceId($priceList->getId())
+            ->setProcessingOffice($this->companyPlaces->getProcessingOffice())
+
             ->get();
 
         $order->save();
