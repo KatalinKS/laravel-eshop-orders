@@ -1,8 +1,6 @@
 <?php
 
-
 namespace KatalinKS\Order\Contracts;
-
 
 interface Order
 {

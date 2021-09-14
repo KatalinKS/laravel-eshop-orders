@@ -123,6 +123,4 @@ class Order extends Model
 
         return $this;
     }
-
-
 }

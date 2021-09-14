@@ -2,6 +2,8 @@
 
 namespace KatalinKS\Order;
 
+use App\Models\Dictionary\OrderItemStatus;
+use App\Models\Dictionary\OrderStatus;
 use KatalinKS\Order\Commands\OrderCommand;
 use KatalinKS\Order\Contracts\Dictionary\OrderItemStatus as OrderItemStatusContract;
 use KatalinKS\Order\Contracts\Dictionary\OrderStatus as OrderStatusContract;
