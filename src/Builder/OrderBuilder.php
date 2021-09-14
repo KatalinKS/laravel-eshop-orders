@@ -48,7 +48,7 @@ class OrderBuilder
         return $this->order;
     }
 
-    public  function setStatus(OrderStatus $orderStatus): self
+    public function setStatus(OrderStatus $orderStatus): self
     {
         $this->order->setStatus($orderStatus->getName());
 
