@@ -116,5 +116,14 @@ class Order extends Model
 
         return $this;
     }
+
+    public function setStatus(string $status): self
+    {
+        $this->setAttribute('status', $status);
+
+        return $this;
+    }
+
+
 }
 

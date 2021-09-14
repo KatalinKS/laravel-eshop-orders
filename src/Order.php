@@ -6,6 +6,7 @@ use App\Services\Eshop\Cart\Interfaces\CartObj;
 use KatalinKS\CompanyPlaces\Interfaces\CompanyPlaces;
 use KatalinKS\Order\Builder\OrderBuilder;
 use KatalinKS\Order\Builder\OrderItemBuilder;
+use KatalinKS\Order\Contracts\Dictionary\OrderStatus;
 use KatalinKS\PriceList\Interfaces\Objects\PriceListObj;
 
 class Order
@@ -13,7 +14,8 @@ class Order
     public function __construct(
         private OrderBuilder $orderBuilder,
         private OrderItemBuilder $itemBuilder,
-        private CompanyPlaces $companyPlaces
+        private CompanyPlaces $companyPlaces,
+        private OrderStatus $status
     ) {
     }
 
@@ -23,6 +25,7 @@ class Order
             ->fresh()
             ->setPriceId($priceList->getId())
             ->setProcessingOffice($this->companyPlaces->getProcessingOffice())
+            ->setStatus($this->status->findByAlias('not-confirmed'))
 
             ->get();
 

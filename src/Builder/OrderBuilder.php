@@ -3,16 +3,12 @@
 namespace KatalinKS\Order\Builder;
 
 use KatalinKS\CompanyPlaces\Models\CompanyPlace;
-use KatalinKS\Order\Models\Order;
+use KatalinKS\Order\Contracts\Dictionary\OrderStatus;
+use KatalinKS\Order\Contracts\Order;
 
 class OrderBuilder
 {
     private Order $order;
-
-    public function build(): Order
-    {
-        return Order::create();
-    }
 
     public function fresh(): self
     {
@@ -23,7 +19,7 @@ class OrderBuilder
 
     public function init(): Order
     {
-        return new Order();
+        return app(Order::class);
     }
 
     public function setPriceId(int $priceId): self
@@ -50,5 +46,12 @@ class OrderBuilder
     public function get(): Order
     {
         return $this->order;
+    }
+
+    public  function setStatus(OrderStatus $orderStatus): self
+    {
+        $this->order->setStatus($orderStatus->getName());
+
+        return $this;
     }
 }
