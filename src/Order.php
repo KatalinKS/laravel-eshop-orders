@@ -19,14 +19,14 @@ class Order
     ) {
     }
 
-    public function create(CartObj $cart, PriceListObj $priceList)
+    public function create(CartObj $cart, PriceListObj $priceList, string $browserId)
     {
         $order = $this->orderBuilder
             ->fresh()
             ->setPriceId($priceList->getId())
             ->setProcessingOffice($this->companyPlaces->getProcessingOffice())
             ->setStatus($this->status->findByAlias('not-confirmed'))
-
+            ->setBrowserId($browserId)
             ->get();
 
         $order->save();

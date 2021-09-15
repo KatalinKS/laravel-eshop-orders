@@ -9,4 +9,6 @@ interface Order
     public function setProcessingOfficeId(int $officeId): self;
 
     public function setStatus(string $status): self;
+
+    public function setBrowserId(string $browserId): self;
 }

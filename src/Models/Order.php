@@ -123,4 +123,11 @@ class Order extends Model implements \KatalinKS\Order\Contracts\Order
 
         return $this;
     }
+
+    public function setBrowserId(string $browserId): self
+    {
+        $this->setAttribute('browser_id', $browserId);
+
+        return $this;
+    }
 }

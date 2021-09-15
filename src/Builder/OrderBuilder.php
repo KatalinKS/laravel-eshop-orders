@@ -54,4 +54,11 @@ class OrderBuilder
 
         return $this;
     }
+
+    public function setBrowserId(string $browserId): self
+    {
+        $this->order->setBrowserId($browserId);
+
+        return $this;
+    }
 }
