@@ -6,8 +6,9 @@ use App\Models\Dictionary\Entity;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use \KatalinKS\Order\Contracts\OrderBuyer as OrderBuyerContract;
 
-class OrderBuyer extends Model
+class OrderBuyer extends Model implements OrderBuyerContract
 {
     use HasFactory;
 

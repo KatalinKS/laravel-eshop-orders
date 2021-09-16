@@ -7,6 +7,7 @@ use KatalinKS\CompanyPlaces\Interfaces\CompanyPlaces;
 use KatalinKS\Order\Builder\OrderBuilder;
 use KatalinKS\Order\Builder\OrderItemBuilder;
 use KatalinKS\Order\Contracts\Dictionary\OrderStatus;
+use KatalinKS\Order\Repository\OrderRepository;
 use KatalinKS\PriceList\Interfaces\Objects\PriceListObj;
 
 class Order
@@ -15,7 +16,7 @@ class Order
         private OrderBuilder $orderBuilder,
         private OrderItemBuilder $itemBuilder,
         private CompanyPlaces $companyPlaces,
-        private OrderStatus $status
+        private OrderRepository $orderRepository
     ) {
     }
 
@@ -25,7 +26,7 @@ class Order
             ->fresh()
             ->setPriceId($priceList->getId())
             ->setProcessingOffice($this->companyPlaces->getProcessingOffice())
-            ->setStatus($this->status->findByAlias('not-confirmed'))
+            ->setStatus('not-confirmed')
             ->setBrowserId($browserId)
             ->get();
 
@@ -34,5 +35,12 @@ class Order
         foreach ($cart->getItems() as $item) {
             $order->items()->save($this->itemBuilder->build($item));
         }
+    }
+
+    public function getCurrent(string $browserId)
+    {
+        return $this->orderRepository->getByBrowserId($browserId)
+            ->whereStatus('not-confirmed')
+            ->first();
     }
 }

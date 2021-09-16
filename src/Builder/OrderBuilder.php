@@ -48,9 +48,9 @@ class OrderBuilder
         return $this->order;
     }
 
-    public function setStatus(OrderStatus $orderStatus): self
+    public function setStatus(string $orderStatus): self
     {
-        $this->order->setStatus($orderStatus->getName());
+        $this->order->setStatus($orderStatus);
 
         return $this;
     }

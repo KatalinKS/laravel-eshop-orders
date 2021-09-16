@@ -11,4 +11,8 @@ interface Order
     public function setStatus(string $status): self;
 
     public function setBrowserId(string $browserId): self;
+
+    public function toArray(): array;
+
+    public  function getId(): int;
 }
