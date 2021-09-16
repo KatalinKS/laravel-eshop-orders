@@ -1,12 +1,11 @@
 <?php
 
-
 namespace KatalinKS\Order\Repository;
 
 use Illuminate\Support\Collection;
 use KatalinKS\Order\Contracts\Order;
-use \KatalinKS\Order\Contracts\Repository\OrderRepository as OrderRepositoryContract;
-use \KatalinKS\Order\Models\Order as OrderModel;
+use KatalinKS\Order\Contracts\Repository\OrderRepository as OrderRepositoryContract;
+use KatalinKS\Order\Models\Order as OrderModel;
 
 class OrderRepository implements OrderRepositoryContract
 {
