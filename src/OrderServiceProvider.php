@@ -51,5 +51,7 @@ class OrderServiceProvider extends PackageServiceProvider
     protected function registerBuilders(): self
     {
         $this->app->bind(OrderBuyerBuilder::class, \KatalinKS\Order\Builder\OrderBuyerBuilder::class);
+
+        return $this;
     }
 }
