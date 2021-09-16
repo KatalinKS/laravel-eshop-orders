@@ -12,7 +12,7 @@ interface Order
 
     public function setBrowserId(string $browserId): self;
 
-    public function toArray(): array;
+    public function toArray();
 
     public function getId(): int;
 }
