@@ -6,7 +6,6 @@ use App\Services\Eshop\Cart\Interfaces\CartObj;
 use KatalinKS\CompanyPlaces\Interfaces\CompanyPlaces;
 use KatalinKS\Order\Builder\OrderBuilder;
 use KatalinKS\Order\Builder\OrderItemBuilder;
-use KatalinKS\Order\Contracts\Dictionary\OrderStatus;
 use KatalinKS\Order\Repository\OrderRepository;
 use KatalinKS\PriceList\Interfaces\Objects\PriceListObj;
 

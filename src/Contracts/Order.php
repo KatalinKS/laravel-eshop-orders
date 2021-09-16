@@ -14,5 +14,5 @@ interface Order
 
     public function toArray(): array;
 
-    public  function getId(): int;
+    public function getId(): int;
 }

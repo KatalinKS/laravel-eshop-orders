@@ -3,7 +3,6 @@
 namespace KatalinKS\Order\Builder;
 
 use KatalinKS\CompanyPlaces\Models\CompanyPlace;
-use KatalinKS\Order\Contracts\Dictionary\OrderStatus;
 use KatalinKS\Order\Contracts\Order;
 
 class OrderBuilder
