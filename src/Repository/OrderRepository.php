@@ -40,7 +40,7 @@ class OrderRepository implements OrderRepositoryContract
     public function getByBrowserId(string $browserId): Collection
     {
         return $this->model
-            ->whereBrowserId()
+            ->whereBrowserId($browserId)
             ->get();
     }
 }
