@@ -130,4 +130,9 @@ class Order extends Model implements \KatalinKS\Order\Contracts\Order
 
         return $this;
     }
+
+    public function getId(): int
+    {
+        return $this->getOriginal('id');
+    }
 }
