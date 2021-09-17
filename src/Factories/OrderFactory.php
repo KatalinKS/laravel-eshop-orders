@@ -1,9 +1,9 @@
 <?php
 
-
 namespace KatalinKS\Order\Factories;
+
 use KatalinKS\Order\Contracts\Builder\OrderBuyerBuilder;
-use  \KatalinKS\Order\Contracts\Factory\OrderFactory as OrderFactoryContract;
+use  KatalinKS\Order\Contracts\Factory\OrderFactory as OrderFactoryContract;
 use KatalinKS\Order\Contracts\Order;
 use KatalinKS\Order\Contracts\Repository\OrderRepository;
 
@@ -12,8 +12,7 @@ class OrderFactory implements OrderFactoryContract
     public function __construct(
         private OrderBuyerBuilder $builder,
         private OrderRepository $repository
-    )
-    {
+    ) {
     }
 
     public function create(array $orderData): Order

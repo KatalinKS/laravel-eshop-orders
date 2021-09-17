@@ -1,13 +1,10 @@
 <?php
 
-
 namespace KatalinKS\Order\Repository;
 
 use KatalinKS\Order\Contracts\OrderItem;
-use KatalinKS\Order\Contracts\Repository\Order;
-use \KatalinKS\Order\Contracts\Repository\OrderItemRepository as OrderItemRepositoryContract;
+use KatalinKS\Order\Contracts\Repository\OrderItemRepository as OrderItemRepositoryContract;
 use KatalinKS\Order\Models\OrderItem as OrderItemModel;
-
 
 class OrderItemRepository implements OrderItemRepositoryContract
 {
