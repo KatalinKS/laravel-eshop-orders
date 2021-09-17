@@ -26,8 +26,7 @@ class Order
 
         $order = $this->factory->createOrder($orderData);
 
-        foreach ($cart->getItems() as $item)
-        {
+        foreach ($cart->getItems() as $item) {
             $itemData = [
                 'sku' => $item->getUnit()->getProduct()->getSKU(),
                 'name' => $item->getUnit()->getProduct()->getName(),
@@ -55,6 +54,5 @@ class Order
 
     public function updateBuyer(array $buyerData, string $browserId)
     {
-
     }
 }
