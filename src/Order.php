@@ -49,7 +49,7 @@ class Order
     public function getCurrent(string $browserId)
     {
         return $this->orderRepository->getByBrowserId($browserId)
-            ->where('status', '=','not-confirmed')
+            ->where('status', '=', 'not-confirmed')
             ->first();
     }
 
