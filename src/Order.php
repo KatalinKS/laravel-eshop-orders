@@ -25,20 +25,9 @@ class Order
         $order = $this->factory->createOrder($orderData);
 
         foreach ($cart->getItems() as $item) {
-            $itemData = [
-                'sku' => $item->getUnit()->getProduct()->getSKU(),
-                'name' => $item->getUnit()->getProduct()->getName(),
-                'size' => $item->getUnit()->getSize()->getSizeName(),
-                'height' => $item->getUnit()->getHeight()->getHeightName(),
-                'price' => $item->getUnit()->getProduct()->getPrice(),
-                'count' => $item->getCount(),
-                'status_id' => OrderStatus::getByAlias('created'),
-                'shipped' => 0,
-                'product_unit_id' => $item->getUnit()->getId(),
-                'order_id' => $order->getId()
-            ];
+            $itemData = DataPreparing::orderItemData($item, $order);
 
-            $this->factory->createOrderItem($itemData, $order);
+            $this->factory->createOrderItem($itemData);
         }
 
         return $order;
