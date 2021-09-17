@@ -4,7 +4,6 @@ namespace KatalinKS\Order\Factories;
 
 use KatalinKS\Order\Builder\OrderItemBuilder;
 use KatalinKS\Order\Contracts\Factory\OrderItemFactory as OrderItemFactoryContract;
-use KatalinKS\Order\Contracts\Order;
 use KatalinKS\Order\Contracts\OrderItem;
 use KatalinKS\Order\Contracts\Repository\OrderItemRepository;
 

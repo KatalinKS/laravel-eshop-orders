@@ -35,7 +35,7 @@ class Order
                 'status_id' => OrderStatus::getByAlias('created'),
                 'shipped' => 0,
                 'product_unit_id' => $item->getUnit()->getId(),
-                'order_id' => $order->getId()
+                'order_id' => $order->getId(),
             ];
 
             $this->factory->createOrderItem($itemData, $order);

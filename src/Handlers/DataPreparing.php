@@ -1,8 +1,6 @@
 <?php
 
-
 namespace KatalinKS\Order\Handlers;
-
 
 use KatalinKS\Order\Contracts\Order;
 use KatalinKS\PriceList\Interfaces\Objects\PriceListObj;
@@ -29,7 +27,7 @@ class DataPreparing
             'status_id' => OrderStatus::getByAlias('created'),
             'shipped' => 0,
             'product_unit_id' => $item->getUnit()->getId(),
-            'order_id' => $order->getId()
+            'order_id' => $order->getId(),
         ];
     }
 }
