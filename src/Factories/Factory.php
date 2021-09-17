@@ -23,8 +23,8 @@ class Factory implements FactoryContract
         return $this->orderFactory->create($orderData);
     }
 
-    public function createOrderItem(array $orderItemData, Order $order): OrderItem
+    public function createOrderItem(array $orderItemData): OrderItem
     {
-        return $this->orderItemFactory->create($orderItemData, $order);
+        return $this->orderItemFactory->create($orderItemData);
     }
 }

@@ -6,6 +6,7 @@ use App\Services\Eshop\Cart\Interfaces\CartObj;
 use KatalinKS\CompanyPlaces\Interfaces\CompanyPlaces;
 use KatalinKS\Order\Builder\OrderItemBuilder;
 use KatalinKS\Order\Contracts\Factory\Factory;
+use KatalinKS\Order\Handlers\DataPreparing;
 use KatalinKS\PriceList\Interfaces\Objects\PriceListObj;
 
 class Order
@@ -19,10 +20,7 @@ class Order
 
     public function create(CartObj $cart, PriceListObj $priceList, string $browserId)
     {
-        $orderData = [
-            'price_list_id' => $priceList->getId(),
-            'browser_id' => $browserId,
-        ];
+        $orderData = DataPreparing::orderData($priceList, $browserId);
 
         $order = $this->factory->createOrder($orderData);
 
@@ -38,6 +36,7 @@ class Order
                 'status_id' => OrderStatus::getByAlias('created'),
                 'shipped' => 0,
                 'product_unit_id' => $item->getUnit()->getId(),
+                'order_id' => $order->getId()
             ];
 
             $this->factory->createOrderItem($itemData, $order);

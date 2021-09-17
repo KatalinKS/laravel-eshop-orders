@@ -18,7 +18,7 @@ class OrderItemFactory implements OrderItemFactoryContract
     {
     }
 
-    public function create(array $itemData, Order $order): OrderItem
+    public function create(array $itemData): OrderItem
     {
         $item = $this->builder
             ->fill($itemData)

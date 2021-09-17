@@ -11,5 +11,5 @@ use KatalinKS\Order\Contracts\OrderItem;
 interface Factory
 {
     public function createOrder(array $orderData): OrderContract;
-    public function createOrderItem(array $orderItemData, Order $order): OrderItem;
+    public function createOrderItem(array $orderItemData): OrderItem;
 }
