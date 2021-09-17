@@ -7,7 +7,7 @@ use KatalinKS\Order\Contracts\OrderBuyer;
 
 class OrderBuyerBuilder extends Builder implements OrderBuyerBuilderContract
 {
-    protected $instance = OrderBuyer::class;
+    protected $type = OrderBuyer::class;
 
     public function get(): OrderBuyer
     {

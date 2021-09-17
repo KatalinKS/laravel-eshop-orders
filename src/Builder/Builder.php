@@ -18,4 +18,11 @@ abstract class Builder
     {
         return app($this->type);
     }
+
+    public function fill(array $data): self
+    {
+        $this->instance->fill($data);
+
+        return $this;
+    }
 }

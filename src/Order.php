@@ -4,36 +4,46 @@ namespace KatalinKS\Order;
 
 use App\Services\Eshop\Cart\Interfaces\CartObj;
 use KatalinKS\CompanyPlaces\Interfaces\CompanyPlaces;
-use KatalinKS\Order\Builder\OrderBuilder;
 use KatalinKS\Order\Builder\OrderItemBuilder;
-use KatalinKS\Order\Repository\OrderRepository;
+use KatalinKS\Order\Contracts\Factory\Factory;
 use KatalinKS\PriceList\Interfaces\Objects\PriceListObj;
 
 class Order
 {
     public function __construct(
-        private OrderBuilder $orderBuilder,
+        private Factory $factory,
         private OrderItemBuilder $itemBuilder,
         private CompanyPlaces $companyPlaces,
-        private OrderRepository $orderRepository
     ) {
     }
 
     public function create(CartObj $cart, PriceListObj $priceList, string $browserId)
     {
-        $order = $this->orderBuilder
-            ->fresh()
-            ->setPriceId($priceList->getId())
-            ->setProcessingOffice($this->companyPlaces->getProcessingOffice())
-            ->setStatus('not-confirmed')
-            ->setBrowserId($browserId)
-            ->get();
+        $orderData = [
+            'price_list_id' => $priceList->getId(),
+            'browser_id' => $browserId,
+        ];
 
-        $order->save();
+        $order = $this->factory->createOrder($orderData);
 
-        foreach ($cart->getItems() as $item) {
-            $order->items()->save($this->itemBuilder->build($item));
+        foreach ($cart->getItems() as $item)
+        {
+            $itemData = [
+                'sku' => $item->getUnit()->getProduct()->getSKU(),
+                'name' => $item->getUnit()->getProduct()->getName(),
+                'size' => $item->getUnit()->getSize()->getSizeName(),
+                'height' => $item->getUnit()->getHeight()->getHeightName(),
+                'price' => $item->getUnit()->getProduct()->getPrice(),
+                'count' => $item->getCount(),
+                'status_id' => OrderStatus::getByAlias('created'),
+                'shipped' => 0,
+                'product_unit_id' => $item->getUnit()->getId(),
+            ];
+
+            $this->factory->createOrderItem($itemData, $order);
         }
+
+        return $order;
     }
 
     public function getCurrent(string $browserId)
@@ -41,5 +51,10 @@ class Order
         return $this->orderRepository->getByBrowserId($browserId)
             ->where('status', '=','not-confirmed')
             ->first();
+    }
+
+    public function updateBuyer(array $buyerData, string $browserId)
+    {
+
     }
 }

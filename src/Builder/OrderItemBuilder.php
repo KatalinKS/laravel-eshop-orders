@@ -3,12 +3,14 @@
 namespace KatalinKS\Order\Builder;
 
 use App\Services\Eshop\Cart\Interfaces\Item\CartItemObj;
-use KatalinKS\Order\Models\OrderItem;
+use KatalinKS\Order\Contracts\OrderItem;
 
-class OrderItemBuilder
+class OrderItemBuilder extends Builder
 {
-    public function build(CartItemObj $item)
+    protected $type = OrderItem::class;
+
+    public function get():OrderItem
     {
-        return OrderItem::createFromCartItem($item);
+        return $this->instance;
     }
 }
