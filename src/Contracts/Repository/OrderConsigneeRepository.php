@@ -2,7 +2,6 @@
 
 namespace KatalinKS\Order\Contracts\Repository;
 
-
 use KatalinKS\Order\Contracts\OrderConsignee;
 
 interface OrderConsigneeRepository

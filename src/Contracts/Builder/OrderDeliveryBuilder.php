@@ -1,6 +1,5 @@
 <?php
 
-
 namespace KatalinKS\Order\Contracts\Builder;
 
 use KatalinKS\Order\Contracts\OrderConsignee;
@@ -13,5 +12,6 @@ interface OrderDeliveryBuilder
     public function fill(array $data): self;
 
     public function setAddress(OrderDeliveryAddress $address): self;
+
     public function setConsignee(OrderConsignee $consignee): self;
 }
