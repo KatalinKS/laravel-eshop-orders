@@ -1,12 +1,10 @@
 <?php
 
-
 namespace KatalinKS\Order\Repository;
 
-
+use KatalinKS\Order\Contracts\OrderLegalRequisites as OrderLegalRequisitesContact;
 use KatalinKS\Order\Contracts\Repository\OrderLegalRequisitesRepository;
-use \KatalinKS\Order\Models\OrderLegalRequisites as Model;
-use \KatalinKS\Order\Contracts\OrderLegalRequisites as OrderLegalRequisitesContact;
+use KatalinKS\Order\Models\OrderLegalRequisites as Model;
 
 class OrderLegalRequisites implements OrderLegalRequisitesRepository
 {
