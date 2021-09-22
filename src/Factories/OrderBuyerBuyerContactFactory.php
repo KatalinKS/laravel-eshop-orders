@@ -1,6 +1,5 @@
 <?php
 
-
 namespace KatalinKS\Order\Factories;
 
 use KatalinKS\Order\Contracts\Builder\OrderLegalRequisitesBuilder as Builder;
@@ -13,8 +12,7 @@ class OrderBuyerBuyerContactFactory implements OrderBuyerContactFactory
     public function __construct(
         private Builder $builder,
         private Repository $repository,
-    )
-    {
+    ) {
     }
 
     public function create(array $contact): OrderBuyerContact
