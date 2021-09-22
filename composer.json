@@ -20,6 +20,7 @@
         "illuminate/contracts": "^8.37",
         "katalinks/companyplaces": "dev-main",
         "katalinks/eshop-price-lists-laravel": "dev-main",
+        "katalinks/person-type-laravel": "dev-main",
         "spatie/laravel-package-tools": "^1.4.3"
     },
     "require-dev": {
@@ -67,6 +68,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/KatalinKS/CompanyPlaces"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/KatalinKS/person-type-laravel.git"
         }
     ],
     "minimum-stability": "dev",

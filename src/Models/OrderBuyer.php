@@ -37,7 +37,7 @@ class OrderBuyer extends Model implements OrderBuyerContract
 
     public function legal()
     {
-        return $this->belongsTo(OrderLegalEntity::class);
+        return $this->belongsTo(OrderLegalRequisites::class);
     }
 
     public function getEntityAttribute()

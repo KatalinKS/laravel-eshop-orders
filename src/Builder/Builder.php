@@ -2,10 +2,15 @@
 
 namespace KatalinKS\Order\Builder;
 
-abstract class Builder
+abstract class Builder implements \KatalinKS\Order\Contracts\Builder\Builder
 {
     protected $type;
     protected $instance;
+
+    public function __construct()
+    {
+        $this->fresh();
+    }
 
     public function fresh(): self
     {

@@ -5,7 +5,7 @@ namespace KatalinKS\Order\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class OrderLegalEntity extends Model
+class OrderLegalRequisites extends Model
 {
     use HasFactory;
 

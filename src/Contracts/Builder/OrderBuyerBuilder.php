@@ -8,9 +8,9 @@ interface OrderBuyerBuilder
 {
     public function get(): OrderBuyer;
 
-    public function buyerContact(array $contactData): self;
+    public function setContact(array $contactData): self;
 
     public function entity(string $entity): self;
 
-    public function legalEntity(array $legalEntityData): self;
+    public function setRequisites(array $legalEntityData): self;
 }

@@ -6,7 +6,13 @@ use App\Services\Eshop\Cart\Interfaces\CartObj;
 use KatalinKS\CompanyPlaces\Interfaces\CompanyPlaces;
 use KatalinKS\Order\Builder\OrderItemBuilder;
 use KatalinKS\Order\Contracts\Factory\Factory;
+use KatalinKS\Order\Contracts\OrderBuyer;
+use KatalinKS\Order\Contracts\OrderBuyerContact;
+use KatalinKS\Order\Contracts\OrderLegalRequisites;
+use KatalinKS\Order\Contracts\Repository\OrderRepository;
 use KatalinKS\Order\Handlers\DataPreparing;
+use KatalinKS\PersonType\Models\PersonalType;
+use KatalinKS\PersonType\PersonTypeFacade;
 use KatalinKS\PriceList\Interfaces\Objects\PriceListObj;
 
 class Order
@@ -15,10 +21,11 @@ class Order
         private Factory $factory,
         private OrderItemBuilder $itemBuilder,
         private CompanyPlaces $companyPlaces,
+        private OrderRepository $orderRepository
     ) {
     }
 
-    public function create(CartObj $cart, PriceListObj $priceList, string $browserId)
+    public function create(CartObj $cart, PriceListObj $priceList, string $browserId): Contracts\Order
     {
         $orderData = DataPreparing::orderData($priceList, $browserId);
 
@@ -33,14 +40,24 @@ class Order
         return $order;
     }
 
-    public function getCurrent(string $browserId)
+    public function getCurrent(string $browserId): Contracts\Order
     {
         return $this->orderRepository->getByBrowserId($browserId)
             ->where('status', '=', 'not-confirmed')
             ->first();
     }
 
-    public function updateBuyer(array $buyerData, string $browserId)
+    public function setBuyer(array $contactData, array $legalData, string $browserId): OrderBuyer
     {
+        $order = $this->getCurrent($browserId);
+
+        $buyerData = DataPreparing::buyerData($legalData['person_type_id'], $order);
+        $contact = DataPreparing::contactData($contactData);
+
+        $requisites = PersonTypeFacade::getType($legalData['person_type_id']) == 'legal' ? DataPreparing::legalData($legalData['requisites']) : null;
+
+        $buyer = $this->factory->createOrderBuyer($buyerData, $contact, $requisites);
+
+        return $buyer;
     }
 }
