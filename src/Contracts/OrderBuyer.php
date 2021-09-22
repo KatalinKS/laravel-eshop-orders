@@ -5,4 +5,6 @@ namespace KatalinKS\Order\Contracts;
 interface OrderBuyer
 {
     public function getId(): int;
+
+    public function toArray();
 }
