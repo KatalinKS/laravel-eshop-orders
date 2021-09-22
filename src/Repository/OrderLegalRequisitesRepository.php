@@ -3,10 +3,10 @@
 namespace KatalinKS\Order\Repository;
 
 use KatalinKS\Order\Contracts\OrderLegalRequisites as OrderLegalRequisitesContact;
-use KatalinKS\Order\Contracts\Repository\OrderLegalRequisitesRepository;
+use KatalinKS\Order\Contracts\Repository\OrderLegalRequisitesRepository as OrderLegalRequisitesRepositoryContract;
 use KatalinKS\Order\Models\OrderLegalRequisites as Model;
 
-class OrderLegalRequisitesRepository implements OrderLegalRequisitesRepository
+class OrderLegalRequisitesRepository implements OrderLegalRequisitesRepositoryContract
 {
     public function __construct(private Model $model)
     {
