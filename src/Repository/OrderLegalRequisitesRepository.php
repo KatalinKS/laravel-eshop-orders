@@ -17,22 +17,22 @@ class OrderLegalRequisitesRepository implements OrderLegalRequisitesRepositoryCo
         return $this->model->find($id);
     }
 
-    public function create(OrderLegalRequisitesContact $requisites): OrderLegalRequisitesContact
+    public function create(OrderLegalRequisitesContact $requisite): OrderLegalRequisitesContact
     {
-        return $this->model->create($requisites->toArray());
+        return $this->model->create($requisite->toArray());
     }
 
-    public function update(OrderLegalRequisitesContact $requisites): void
+    public function update(OrderLegalRequisitesContact $requisite): void
     {
         $this->model
-            ->whereId($requisites->getId())
-            ->update($requisites->toArray());
+            ->whereId($requisite->getId())
+            ->update($requisite->toArray());
     }
 
-    public function delete(OrderLegalRequisitesContact $requisites): void
+    public function delete(OrderLegalRequisitesContact $requisite): void
     {
         $this->model
-            ->whereId($requisites->getId())
+            ->whereId($requisite->getId())
             ->delete();
     }
 }
