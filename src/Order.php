@@ -7,11 +7,8 @@ use KatalinKS\CompanyPlaces\Interfaces\CompanyPlaces;
 use KatalinKS\Order\Builder\OrderItemBuilder;
 use KatalinKS\Order\Contracts\Factory\Factory;
 use KatalinKS\Order\Contracts\OrderBuyer;
-use KatalinKS\Order\Contracts\OrderBuyerContact;
-use KatalinKS\Order\Contracts\OrderLegalRequisites;
 use KatalinKS\Order\Contracts\Repository\OrderRepository;
 use KatalinKS\Order\Handlers\DataPreparing;
-use KatalinKS\PersonType\Models\PersonalType;
 use KatalinKS\PersonType\PersonTypeFacade;
 use KatalinKS\PriceList\Interfaces\Objects\PriceListObj;
 

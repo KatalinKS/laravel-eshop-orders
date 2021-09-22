@@ -3,6 +3,7 @@
 namespace KatalinKS\Order\Factories;
 
 use KatalinKS\Order\Contracts\Factory\Factory as FactoryContract;
+use KatalinKS\Order\Contracts\Factory\OrderBuyerFactory as OrderBuyerFactoryContract;
 use KatalinKS\Order\Contracts\Factory\OrderContactFactory as OrderContactFactoryContact;
 use KatalinKS\Order\Contracts\Factory\OrderFactory as OrderFactoryContract;
 use KatalinKS\Order\Contracts\Factory\OrderItemFactory as OrderItemFactoryContract;
@@ -12,7 +13,6 @@ use KatalinKS\Order\Contracts\OrderBuyer as OrderBuyerContract;
 use KatalinKS\Order\Contracts\OrderBuyerContact;
 use KatalinKS\Order\Contracts\OrderItem;
 use KatalinKS\Order\Contracts\OrderLegalRequisites;
-use \KatalinKS\Order\Contracts\Factory\OrderBuyerFactory as OrderBuyerFactoryContract;
 use KatalinKS\PersonType\PersonTypeFacade;
 
 class Factory implements FactoryContract
@@ -40,7 +40,7 @@ class Factory implements FactoryContract
     {
         $contact = $this->createBuyerContact($orderBuyer['contact']);
 
-        if(PersonTypeFacade::getType($orderBuyer['person_type_id']) == 'legal') {
+        if (PersonTypeFacade::getType($orderBuyer['person_type_id']) == 'legal') {
             return $this->orderBuyerFactory->createLegalBuyerEntity($contact, $requisites, $orderBuyer['person_type_id']);
         } else {
             return $this->orderBuyerFactory->creteNaturalPersonBuyer($contact, $orderBuyer['person_type_id']);

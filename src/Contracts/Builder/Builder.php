@@ -1,8 +1,6 @@
 <?php
 
-
 namespace KatalinKS\Order\Contracts\Builder;
-
 
 interface Builder
 {

@@ -4,7 +4,6 @@ namespace KatalinKS\Order\Handlers;
 
 use JetBrains\PhpStorm\ArrayShape;
 use KatalinKS\Order\Contracts\Order;
-use KatalinKS\Order\Contracts\OrderBuyer;
 use KatalinKS\PersonType\Contract\PersonalType;
 use KatalinKS\PriceList\Interfaces\Objects\PriceListObj;
 

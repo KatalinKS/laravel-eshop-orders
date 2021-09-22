@@ -1,20 +1,18 @@
 <?php
 
-
 namespace KatalinKS\Order\Factories;
 
 use KatalinKS\Order\Contracts\Builder\OrderBuyerBuilder;
-use \KatalinKS\Order\Contracts\Factory\OrderBuyerFactory as OrderBuyerFactoryContract;
+use KatalinKS\Order\Contracts\Factory\Factory as FactoryContract;
+use KatalinKS\Order\Contracts\Factory\OrderBuyerFactory as OrderBuyerFactoryContract;
 use KatalinKS\Order\Contracts\OrderBuyer;
-use \KatalinKS\Order\Contracts\Factory\Factory as FactoryContract;
 
 class OrderBuyerFactory implements OrderBuyerFactoryContract
 {
     public function __construct(
         private OrderBuyerBuilder $builder,
         private FactoryContract $factory
-    )
-    {
+    ) {
     }
 
     public function createLegalBuyerEntity(array $contact, array $requisites, int $personType): OrderBuyer
