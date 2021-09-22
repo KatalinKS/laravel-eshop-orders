@@ -8,9 +8,9 @@ interface OrderLegalRequisitesRepository
 {
     public function get(int $id): OrderLegalRequisites;
 
-    public function create(OrderLegalRequisites $order): OrderLegalRequisites;
+    public function create(OrderLegalRequisites  $requisite): OrderLegalRequisites;
 
-    public function update(OrderLegalRequisites $order): void;
+    public function update(OrderLegalRequisites  $requisite): void;
 
-    public function delete(OrderLegalRequisites $order): void;
+    public function delete(OrderLegalRequisites  $requisite): void;
 }
