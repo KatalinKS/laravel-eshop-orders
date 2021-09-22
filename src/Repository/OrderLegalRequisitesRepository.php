@@ -6,7 +6,7 @@ use KatalinKS\Order\Contracts\OrderLegalRequisites as OrderLegalRequisitesContac
 use KatalinKS\Order\Contracts\Repository\OrderLegalRequisitesRepository;
 use KatalinKS\Order\Models\OrderLegalRequisites as Model;
 
-class OrderLegalRequisites implements OrderLegalRequisitesRepository
+class OrderLegalRequisitesRepository implements OrderLegalRequisitesRepository
 {
     public function __construct(private Model $model)
     {
