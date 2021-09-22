@@ -4,7 +4,7 @@ namespace KatalinKS\Order\Contracts\Factory;
 
 use KatalinKS\Order\Contracts\OrderBuyerContact;
 
-interface OrderContactFactory
+interface OrderBuyerContactFactory
 {
     public function create(array $contact): OrderBuyerContact;
 }

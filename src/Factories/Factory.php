@@ -4,7 +4,7 @@ namespace KatalinKS\Order\Factories;
 
 use KatalinKS\Order\Contracts\Factory\Factory as FactoryContract;
 use KatalinKS\Order\Contracts\Factory\OrderBuyerFactory as OrderBuyerFactoryContract;
-use KatalinKS\Order\Contracts\Factory\OrderContactFactory as OrderContactFactoryContact;
+use KatalinKS\Order\Contracts\Factory\OrderBuyerContactFactory as OrderContactFactoryContact;
 use KatalinKS\Order\Contracts\Factory\OrderFactory as OrderFactoryContract;
 use KatalinKS\Order\Contracts\Factory\OrderItemFactory as OrderItemFactoryContract;
 use KatalinKS\Order\Contracts\Factory\OrderLegalRequisitesFactory as OrderLegalRequisitesFactoryContract;
