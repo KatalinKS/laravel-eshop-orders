@@ -8,9 +8,9 @@ interface OrderDeliveryRepository
 {
     public function get(int $id): OrderDelivery;
 
-    public function create(OrderDelivery  $consignee): OrderDelivery;
+    public function create(OrderDelivery  $delivery): OrderDelivery;
 
-    public function update(OrderDelivery  $consignee): void;
+    public function update(OrderDelivery  $delivery): void;
 
-    public function delete(OrderDelivery  $consignee): void;
+    public function delete(OrderDelivery  $delivery): void;
 }

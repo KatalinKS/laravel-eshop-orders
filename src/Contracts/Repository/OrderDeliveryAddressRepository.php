@@ -8,9 +8,9 @@ interface OrderDeliveryAddressRepository
 {
     public function get(int $id): OrderDeliveryAddress;
 
-    public function create(OrderDeliveryAddress  $consignee): OrderDeliveryAddress;
+    public function create(OrderDeliveryAddress  $address): OrderDeliveryAddress;
 
-    public function update(OrderDeliveryAddress  $consignee): void;
+    public function update(OrderDeliveryAddress  $address): void;
 
-    public function delete(OrderDeliveryAddress  $consignee): void;
+    public function delete(OrderDeliveryAddress  $address): void;
 }
