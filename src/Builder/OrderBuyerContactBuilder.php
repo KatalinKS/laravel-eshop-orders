@@ -1,8 +1,6 @@
 <?php
 
-
 namespace KatalinKS\Order\Builder;
-
 
 use KatalinKS\Order\Contracts\Builder\OrderBuyerContactBuilder as OrderBuyerContactBuilderContract;
 use KatalinKS\Order\Contracts\OrderBuyerContact;

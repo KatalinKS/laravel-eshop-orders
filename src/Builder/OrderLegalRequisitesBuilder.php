@@ -1,11 +1,9 @@
 <?php
 
-
 namespace KatalinKS\Order\Builder;
 
-
+use KatalinKS\Order\Contracts\Builder\OrderLegalRequisitesBuilder as OrderLegalRequisitesBuilderContract;
 use KatalinKS\Order\Contracts\OrderLegalRequisites;
-use \KatalinKS\Order\Contracts\Builder\OrderLegalRequisitesBuilder as OrderLegalRequisitesBuilderContract;
 
 class OrderLegalRequisitesBuilder extends Builder implements OrderLegalRequisitesBuilderContract
 {
