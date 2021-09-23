@@ -14,13 +14,6 @@ class OrderBuyerBuilder extends Builder implements OrderBuyerBuilderContract
         return $this->instance;
     }
 
-    public function buyerContact(array $contactData): self
-    {
-        app();
-
-        return $this;
-    }
-
     public function entity(string $entity): self
     {
         return $this;
@@ -28,6 +21,20 @@ class OrderBuyerBuilder extends Builder implements OrderBuyerBuilderContract
 
     public function legalEntity(array $legalEntityData): self
     {
+        return $this;
+    }
+
+    public function setContact(array $contactData): self
+    {
+        $this->get()->setContact($contactData);
+
+        return $this;
+    }
+
+    public function setRequisites(array $legalEntityData): self
+    {
+        $this->get()->setLegalRequisites($legalEntityData);
+
         return $this;
     }
 }

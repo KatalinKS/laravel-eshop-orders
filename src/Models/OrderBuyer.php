@@ -6,7 +6,10 @@ use App\Models\Dictionary\Entity;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use KatalinKS\Order\Contracts\OrderBuyer as OrderBuyerContract;
+use KatalinKS\Order\Contracts\OrderBuyerContact;
+use KatalinKS\Order\Contracts\OrderLegalRequisites;
 
 class OrderBuyer extends Model implements OrderBuyerContract
 {
@@ -35,9 +38,14 @@ class OrderBuyer extends Model implements OrderBuyerContract
         return $this->belongsTo(Entity::class);
     }
 
-    public function legal()
+    public function requisites(): BelongsTo
     {
         return $this->belongsTo(OrderLegalRequisites::class);
+    }
+
+    public function contact(): BelongsTo
+    {
+        return $this->belongsTo(OrderBuyerContact::class);
     }
 
     public function getEntityAttribute()
@@ -48,5 +56,20 @@ class OrderBuyer extends Model implements OrderBuyerContract
     public function getLegalAttribute()
     {
         return $this->getRelation('legal');
+    }
+
+    public function getId(): int
+    {
+        return $this->getOriginal('id');
+    }
+
+    public function setContact(OrderBuyerContact $contact): self
+    {
+        return $this->contact()->associate($contact);
+    }
+
+    public function setLegalRequisites(OrderLegalRequisites $requisites): self
+    {
+        return $this->requisites()->associate($requisites);
     }
 }
