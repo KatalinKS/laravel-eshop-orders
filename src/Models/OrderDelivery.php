@@ -7,8 +7,11 @@ use App\Models\Dictionary\DeliveryMethod;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use KatalinKS\Order\Contracts\OrderConsignee;
+use \KatalinKS\Order\Contracts\OrderDelivery as OrderDeliveryContract;
+use KatalinKS\Order\Contracts\OrderDeliveryAddress;
 
-class OrderDelivery extends Model
+class OrderDelivery extends Model implements OrderDeliveryContract
 {
     use HasFactory;
 
@@ -39,5 +42,24 @@ class OrderDelivery extends Model
     public function pickupPlace()
     {
         return $this->belongsTo(CompanyPlace::class);
+    }
+
+    public function getId(): int
+    {
+        return $this->getOriginal('id');
+    }
+
+    public function setConsignee(OrderConsignee $consignee): OrderDeliveryContract
+    {
+        $this->consignee()->associate($consignee);
+
+        return $this;
+    }
+
+    public function setAddress(OrderDeliveryAddress $address): OrderDeliveryContract
+    {
+        $this->address()->associate($address);
+
+        return $this;
     }
 }
