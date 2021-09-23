@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use KatalinKS\Order\Contracts\OrderConsignee;
-use \KatalinKS\Order\Contracts\OrderDelivery as OrderDeliveryContract;
+use KatalinKS\Order\Contracts\OrderDelivery as OrderDeliveryContract;
 use KatalinKS\Order\Contracts\OrderDeliveryAddress;
 
 class OrderDelivery extends Model implements OrderDeliveryContract
