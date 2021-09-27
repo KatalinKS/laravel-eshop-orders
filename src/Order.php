@@ -7,6 +7,7 @@ use KatalinKS\CompanyPlaces\Interfaces\CompanyPlaces;
 use KatalinKS\Order\Builder\OrderItemBuilder;
 use KatalinKS\Order\Contracts\Factory\Factory;
 use KatalinKS\Order\Contracts\OrderBuyer;
+use KatalinKS\Order\Contracts\OrderDelivery;
 use KatalinKS\Order\Contracts\Repository\OrderRepository;
 use KatalinKS\Order\Handlers\DataPreparing;
 use KatalinKS\PersonType\PersonTypeFacade;
@@ -56,5 +57,19 @@ class Order
         $buyer = $this->factory->createOrderBuyer($buyerData, $contact, $requisites);
 
         return $buyer;
+    }
+
+    public function setDelivery(array $address, array $consignee, string $browserId): OrderDelivery
+    {
+        $order = $this->getCurrent($browserId);
+
+        $address = DataPreparing::address($address);
+        $consignee = DataPreparing::consignee($consignee);
+
+        $delivery = $this->factory->createDelivery($address, $consignee, $order);
+
+        $order->setDelivery($delivery);
+
+        return $delivery;
     }
 }

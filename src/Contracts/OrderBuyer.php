@@ -11,4 +11,6 @@ interface OrderBuyer
     public function setContact(OrderBuyerContact $contact): self;
 
     public function setLegalRequisites(OrderLegalRequisites $requisites): self;
+
+    public function getPersonType(): string;
 }

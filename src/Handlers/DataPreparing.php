@@ -66,4 +66,30 @@ class DataPreparing
             'fax' => $legalData['fax'],
         ];
     }
+
+    #[ArrayShape(['country' => "mixed", 'zip' => "mixed", 'region' => "mixed", 'ceo' => "mixed", 'street' => "mixed", 'house' => "mixed", 'building' => "mixed", 'structure' => "mixed", 'office' => "mixed"])]
+    public static function address(array $address): array
+    {
+        return [
+            'country' => $address['country'],
+            'zip' => $address['zip'],
+            'region' => $address['region'],
+            'ceo' => $address['ceo'],
+            'street' => $address['street'],
+            'house' => $address['house'],
+            'building' => $address['building'],
+            'structure' => $address['structure'],
+            'office' => $address['office'],
+        ];
+    }
+
+    #[ArrayShape(['name' => "mixed", 'inn' => "mixed", 'kpp' => "mixed"])]
+    public static function consignee(array $consignee): array
+    {
+        return [
+            'name' => $consignee['name'],
+            'inn' => $consignee['inn'],
+            'kpp' => $consignee['kpp'],
+        ];
+    }
 }

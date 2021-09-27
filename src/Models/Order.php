@@ -7,6 +7,8 @@ use App\Models\Company\Manager;
 use App\Models\EShop\PriceList;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use KatalinKS\Order\Contracts\OrderBuyer;
+use KatalinKS\Order\Contracts\OrderDelivery;
 
 class Order extends Model implements \KatalinKS\Order\Contracts\Order
 {
@@ -134,5 +136,15 @@ class Order extends Model implements \KatalinKS\Order\Contracts\Order
     public function getId(): int
     {
         return $this->getOriginal('id');
+    }
+
+    public function getBuyer(): OrderBuyer
+    {
+        return $this->getRelationValue('buyer');
+    }
+
+    public function setDelivery(OrderDelivery $delivery): \KatalinKS\Order\Contracts\Order
+    {
+        return $this->delivery()->associate($delivery);
     }
 }

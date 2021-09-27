@@ -2,7 +2,6 @@
 
 namespace KatalinKS\Order\Contracts\Factory;
 
-use KatalinKS\Order\Contracts\Order;
 use KatalinKS\Order\Contracts\Order as OrderContract;
 use KatalinKS\Order\Contracts\OrderBuyer as OrderBuyerContract;
 use KatalinKS\Order\Contracts\OrderBuyerContact;
@@ -24,7 +23,7 @@ interface Factory
 
     public function createLegalRequisites(array $requisites): OrderLegalRequisites;
 
-    public function createDelivery(array $delivery, array $address, array $consignee, Order $order): OrderDelivery;
+    public function createDelivery(array $address, array $consignee, OrderContract $order): OrderDelivery;
 
     public function createDeliveryAddress(array $address): OrderDeliveryAddress;
 

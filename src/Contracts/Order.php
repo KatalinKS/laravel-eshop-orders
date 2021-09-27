@@ -15,4 +15,8 @@ interface Order
     public function toArray();
 
     public function getId(): int;
+
+    public function getBuyer(): OrderBuyer;
+
+    public function setDelivery(OrderDelivery $delivery): self;
 }

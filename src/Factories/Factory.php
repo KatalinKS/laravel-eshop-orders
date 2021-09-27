@@ -11,9 +11,15 @@ use KatalinKS\Order\Contracts\Factory\OrderLegalRequisitesFactory as OrderLegalR
 use KatalinKS\Order\Contracts\Order;
 use KatalinKS\Order\Contracts\OrderBuyer as OrderBuyerContract;
 use KatalinKS\Order\Contracts\OrderBuyerContact;
+use KatalinKS\Order\Contracts\OrderConsignee;
+use KatalinKS\Order\Contracts\OrderDelivery;
+use KatalinKS\Order\Contracts\OrderDeliveryAddress;
 use KatalinKS\Order\Contracts\OrderItem;
 use KatalinKS\Order\Contracts\OrderLegalRequisites;
 use KatalinKS\PersonType\PersonTypeFacade;
+use KatalinKS\Order\Contracts\Factory\OrderDeliveryFactory as OrderDeliveryFactoryContract;
+use \KatalinKS\Order\Contracts\Factory\OrderDeliveryAddressFactory as OrderDeliveryAddressFactoryContract;
+use \KatalinKS\Order\Contracts\Factory\OrderConsigneeFactory as OrderConsigneeFactoryContract;
 
 class Factory implements FactoryContract
 {
@@ -22,7 +28,10 @@ class Factory implements FactoryContract
         private OrderItemFactoryContract $orderItemFactory,
         private OrderBuyerFactoryContract $orderBuyerFactory,
         private OrderLegalRequisitesFactoryContract $orderLegalRequisitesFactory,
-        private OrderContactFactoryContact $orderContactFactory
+        private OrderContactFactoryContact $orderContactFactory,
+        private OrderDeliveryFactoryContract $orderDeliveryFactory,
+        private OrderDeliveryAddressFactoryContract $orderDeliveryAddressFactory,
+        private OrderConsigneeFactoryContract $orderConsigneeFactory
     ) {
     }
 
@@ -57,5 +66,26 @@ class Factory implements FactoryContract
     {
         return $this->orderContactFactory
             ->create($contact);
+    }
+
+    public function createDelivery(array $address, array $consignee, Order $order): OrderDelivery
+    {
+        if($order->getBuyer()->getPersonType() == 'legal') {
+            $delivery = $this->orderDeliveryFactory->creteWithConsignee($address, $consignee);
+        } else {
+            $delivery = $this->orderDeliveryFactory->create($address);
+        }
+
+        return $delivery;
+    }
+
+    public function createDeliveryAddress(array $address): OrderDeliveryAddress
+    {
+        return $this->orderDeliveryAddressFactory->create($address);
+    }
+
+    public function createConsignee(array $consignee): OrderConsignee
+    {
+        return $this->orderConsigneeFactory->create($consignee);
     }
 }
