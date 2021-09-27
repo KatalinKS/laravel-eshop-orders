@@ -3,6 +3,7 @@
 namespace KatalinKS\Order\Contracts\Factory;
 
 use KatalinKS\Order\Contracts\Order as OrderContract;
+use KatalinKS\Order\Contracts\OrderAdditional;
 use KatalinKS\Order\Contracts\OrderBuyer as OrderBuyerContract;
 use KatalinKS\Order\Contracts\OrderBuyerContact;
 use KatalinKS\Order\Contracts\OrderConsignee;
@@ -28,4 +29,6 @@ interface Factory
     public function createDeliveryAddress(array $address): OrderDeliveryAddress;
 
     public function createConsignee(array $consignee): OrderConsignee;
+
+    public function createAdditional(bool $logo, ?string $comment = null, ?array $files = null): OrderAdditional;
 }

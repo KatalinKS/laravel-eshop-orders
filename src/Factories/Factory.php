@@ -9,6 +9,7 @@ use KatalinKS\Order\Contracts\Factory\OrderFactory as OrderFactoryContract;
 use KatalinKS\Order\Contracts\Factory\OrderItemFactory as OrderItemFactoryContract;
 use KatalinKS\Order\Contracts\Factory\OrderLegalRequisitesFactory as OrderLegalRequisitesFactoryContract;
 use KatalinKS\Order\Contracts\Order;
+use KatalinKS\Order\Contracts\OrderAdditional;
 use KatalinKS\Order\Contracts\OrderBuyer as OrderBuyerContract;
 use KatalinKS\Order\Contracts\OrderBuyerContact;
 use KatalinKS\Order\Contracts\OrderConsignee;
@@ -20,6 +21,7 @@ use KatalinKS\PersonType\PersonTypeFacade;
 use KatalinKS\Order\Contracts\Factory\OrderDeliveryFactory as OrderDeliveryFactoryContract;
 use \KatalinKS\Order\Contracts\Factory\OrderDeliveryAddressFactory as OrderDeliveryAddressFactoryContract;
 use \KatalinKS\Order\Contracts\Factory\OrderConsigneeFactory as OrderConsigneeFactoryContract;
+use \KatalinKS\Order\Contracts\Factory\OrderAdditionalFactory as OrderAdditionalFactoryContract;
 
 class Factory implements FactoryContract
 {
@@ -31,7 +33,8 @@ class Factory implements FactoryContract
         private OrderContactFactoryContact $orderContactFactory,
         private OrderDeliveryFactoryContract $orderDeliveryFactory,
         private OrderDeliveryAddressFactoryContract $orderDeliveryAddressFactory,
-        private OrderConsigneeFactoryContract $orderConsigneeFactory
+        private OrderConsigneeFactoryContract $orderConsigneeFactory,
+        private OrderAdditionalFactoryContract $orderAdditionalFactory
     ) {
     }
 
@@ -87,5 +90,10 @@ class Factory implements FactoryContract
     public function createConsignee(array $consignee): OrderConsignee
     {
         return $this->orderConsigneeFactory->create($consignee);
+    }
+
+    public function createAdditional(bool $logo, ?string $comment = null, ?array $files = null): OrderAdditional
+    {
+        return$this->orderAdditionalFactory->create($logo, $comment, $files);
     }
 }

@@ -19,4 +19,6 @@ interface Order
     public function getBuyer(): OrderBuyer;
 
     public function setDelivery(OrderDelivery $delivery): self;
+
+    public function setAdditional(OrderAdditional $additional): self;
 }

@@ -72,4 +72,20 @@ class Order
 
         return $delivery;
     }
+
+    public function setPayment(string $browserId)
+    {
+        $order = $this->getCurrent($browserId);
+    }
+
+    public function setAdditional(string $browserId, bool $logo = false, ?string $comment = null, ?array $files = null): Contracts\OrderAdditional
+    {
+        $order = $this->getCurrent($browserId);
+
+        $additional = $this->factory->createAdditional($logo, $comment, $files);
+
+        $order->setAdditional($additional);
+
+        return $additional;
+    }
 }
