@@ -5,6 +5,7 @@ namespace KatalinKS\Order;
 use App\Services\Eshop\Cart\Interfaces\CartObj;
 use KatalinKS\CompanyPlaces\Interfaces\CompanyPlaces;
 use KatalinKS\Order\Builder\OrderItemBuilder;
+use KatalinKS\Order\Contracts\External\OrderPaymentMethod;
 use KatalinKS\Order\Contracts\Factory\Factory;
 use KatalinKS\Order\Contracts\OrderBuyer;
 use KatalinKS\Order\Contracts\OrderDelivery;
@@ -73,9 +74,16 @@ class Order
         return $delivery;
     }
 
-    public function setPayment(string $browserId)
+    public function setPayment(string $browserId, OrderPaymentMethod $method, string $status)
     {
         $order = $this->getCurrent($browserId);
+
+        $payment = DataPreparing::payment($method, $status);
+        $payment = $this->factory->createPayment($payment);
+
+        $order->setPayment($payment);
+
+        return $payment;
     }
 
     public function setAdditional(string $browserId, bool $logo = false, ?string $comment = null, ?array $files = null): Contracts\OrderAdditional

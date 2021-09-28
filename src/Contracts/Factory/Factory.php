@@ -2,6 +2,7 @@
 
 namespace KatalinKS\Order\Contracts\Factory;
 
+use KatalinKS\Order\Contracts\External\OrderPaymentMethod;
 use KatalinKS\Order\Contracts\Order as OrderContract;
 use KatalinKS\Order\Contracts\OrderAdditional;
 use KatalinKS\Order\Contracts\OrderBuyer as OrderBuyerContract;
@@ -11,6 +12,7 @@ use KatalinKS\Order\Contracts\OrderDelivery;
 use KatalinKS\Order\Contracts\OrderDeliveryAddress;
 use KatalinKS\Order\Contracts\OrderItem;
 use KatalinKS\Order\Contracts\OrderLegalRequisites;
+use KatalinKS\Order\Contracts\OrderPayment;
 
 interface Factory
 {
@@ -31,4 +33,6 @@ interface Factory
     public function createConsignee(array $consignee): OrderConsignee;
 
     public function createAdditional(bool $logo, ?string $comment = null, ?array $files = null): OrderAdditional;
+
+    public function createPayment(array $payment): OrderPayment;
 }

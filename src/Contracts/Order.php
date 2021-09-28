@@ -21,4 +21,6 @@ interface Order
     public function setDelivery(OrderDelivery $delivery): self;
 
     public function setAdditional(OrderAdditional $additional): self;
+
+    public function setPayment(OrderPayment $payment): self;
 }

@@ -2,6 +2,7 @@
 
 namespace KatalinKS\Order\Factories;
 
+use KatalinKS\Order\Contracts\External\OrderPaymentMethod;
 use KatalinKS\Order\Contracts\Factory\Factory as FactoryContract;
 use KatalinKS\Order\Contracts\Factory\OrderBuyerContactFactory as OrderContactFactoryContact;
 use KatalinKS\Order\Contracts\Factory\OrderBuyerFactory as OrderBuyerFactoryContract;
@@ -17,11 +18,13 @@ use KatalinKS\Order\Contracts\OrderDelivery;
 use KatalinKS\Order\Contracts\OrderDeliveryAddress;
 use KatalinKS\Order\Contracts\OrderItem;
 use KatalinKS\Order\Contracts\OrderLegalRequisites;
+use KatalinKS\Order\Contracts\OrderPayment;
 use KatalinKS\PersonType\PersonTypeFacade;
 use KatalinKS\Order\Contracts\Factory\OrderDeliveryFactory as OrderDeliveryFactoryContract;
 use \KatalinKS\Order\Contracts\Factory\OrderDeliveryAddressFactory as OrderDeliveryAddressFactoryContract;
 use \KatalinKS\Order\Contracts\Factory\OrderConsigneeFactory as OrderConsigneeFactoryContract;
 use \KatalinKS\Order\Contracts\Factory\OrderAdditionalFactory as OrderAdditionalFactoryContract;
+use \KatalinKS\Order\Contracts\Factory\OrderPaymentFactory as OrderPaymentFactoryContract;
 
 class Factory implements FactoryContract
 {
@@ -34,7 +37,8 @@ class Factory implements FactoryContract
         private OrderDeliveryFactoryContract $orderDeliveryFactory,
         private OrderDeliveryAddressFactoryContract $orderDeliveryAddressFactory,
         private OrderConsigneeFactoryContract $orderConsigneeFactory,
-        private OrderAdditionalFactoryContract $orderAdditionalFactory
+        private OrderAdditionalFactoryContract $orderAdditionalFactory,
+        private OrderPaymentFactoryContract $orderPaymentFactory
     ) {
     }
 
@@ -94,6 +98,11 @@ class Factory implements FactoryContract
 
     public function createAdditional(bool $logo, ?string $comment = null, ?array $files = null): OrderAdditional
     {
-        return$this->orderAdditionalFactory->create($logo, $comment, $files);
+        return $this->orderAdditionalFactory->create($logo, $comment, $files);
+    }
+
+    public function createPayment(array $payment): OrderPayment
+    {
+        return $this->orderPaymentFactory->create($payment);
     }
 }
