@@ -2,8 +2,6 @@
 
 namespace KatalinKS\Order\Contracts;
 
-
-
 use KatalinKS\CompanyPlaces\Interfaces\CompanyPlace;
 use KatalinKS\PriceList\Interfaces\Objects\PriceListObj;
 
