@@ -3,9 +3,9 @@
 namespace KatalinKS\Order\Factories;
 
 use KatalinKS\Order\Contracts\Builder\OrderPaymentBuilder as Builder;
+use KatalinKS\Order\Contracts\Factory\OrderPaymentFactor as Contract;
 use KatalinKS\Order\Contracts\OrderPayment;
 use KatalinKS\Order\Contracts\Repository\OrderAdditionalRepository as Repository;
-use \KatalinKS\Order\Contracts\Factory\OrderPaymentFactor as Contract;
 
 class OrderPaymentFactory implements Contract
 {

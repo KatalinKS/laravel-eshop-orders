@@ -2,7 +2,6 @@
 
 namespace KatalinKS\Order\Contracts\Factory;
 
-use KatalinKS\Order\Contracts\External\OrderPaymentMethod;
 use KatalinKS\Order\Contracts\Order as OrderContract;
 use KatalinKS\Order\Contracts\OrderAdditional;
 use KatalinKS\Order\Contracts\OrderBuyer as OrderBuyerContract;

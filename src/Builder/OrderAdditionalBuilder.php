@@ -16,8 +16,7 @@ class OrderAdditionalBuilder extends Builder implements OrderAdditionalBuilderCo
 
     public function attachFiles(array $files): self
     {
-        foreach ($files as $file)
-        {
+        foreach ($files as $file) {
             $this->get()->attachFile($file);
         }
 

@@ -3,10 +3,10 @@
 namespace KatalinKS\Order\Factories;
 
 use KatalinKS\Order\Contracts\Builder\OrderAdditionalBuilder as Builder;
+use KatalinKS\Order\Contracts\Factory\OrderAdditionalFactory as OrderAdditionalFactoryContract;
 use KatalinKS\Order\Contracts\OrderAdditional;
 use KatalinKS\Order\Contracts\OrderLegalRequisites;
 use KatalinKS\Order\Contracts\Repository\OrderAdditionalRepository as Repository;
-use \KatalinKS\Order\Contracts\Factory\OrderAdditionalFactory as OrderAdditionalFactoryContract;
 
 class OrderAdditionalFactory implements OrderAdditionalFactoryContract
 {
