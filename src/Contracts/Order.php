@@ -2,7 +2,9 @@
 
 namespace KatalinKS\Order\Contracts;
 
-use KatalinKS\CompanyPlaces\Models\CompanyPlace;
+
+
+use KatalinKS\CompanyPlaces\Interfaces\CompanyPlace;
 
 interface Order
 {
@@ -26,5 +28,15 @@ interface Order
 
     public function setPayment(OrderPayment $payment): self;
 
+    /**
+     * Возвращает головной офис
+     * @return CompanyPlace
+     */
     public function getOffice(): CompanyPlace;
+
+    /**
+     * Возвращает офис самовывоза (в случае если доставка - вернет null)
+     * @return CompanyPlace|null
+     */
+    public function getPickUpOffice(): ?CompanyPlace;
 }
