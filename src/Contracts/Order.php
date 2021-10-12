@@ -2,6 +2,8 @@
 
 namespace KatalinKS\Order\Contracts;
 
+use KatalinKS\CompanyPlaces\Models\CompanyPlace;
+
 interface Order
 {
     public function setPriceId(int $priceId): self;
@@ -23,4 +25,6 @@ interface Order
     public function setAdditional(OrderAdditional $additional): self;
 
     public function setPayment(OrderPayment $payment): self;
+
+    public function getOffice(): CompanyPlace;
 }
