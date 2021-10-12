@@ -5,6 +5,7 @@ namespace KatalinKS\Order\Contracts;
 
 
 use KatalinKS\CompanyPlaces\Interfaces\CompanyPlace;
+use KatalinKS\PriceList\Interfaces\Objects\PriceListObj;
 
 interface Order
 {
@@ -39,4 +40,10 @@ interface Order
      * @return CompanyPlace|null
      */
     public function getPickUpOffice(): ?CompanyPlace;
+
+    /**
+     * Возвращает прайс лист на основе которого делался заказ
+     * @return PriceListObj
+     */
+    public function getPriceList(): PriceListObj;
 }

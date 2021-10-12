@@ -4,11 +4,11 @@ namespace KatalinKS\Order\Models;
 
 use App\Models\Company\CompanyPlace;
 use App\Models\Company\Manager;
-use App\Models\EShop\PriceList;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use KatalinKS\Order\Contracts\OrderBuyer;
 use KatalinKS\Order\Contracts\OrderDelivery;
+use KatalinKS\PriceList\Models\PriceList;
 
 class Order extends Model implements \KatalinKS\Order\Contracts\Order
 {
