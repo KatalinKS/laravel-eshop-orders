@@ -13,4 +13,6 @@ interface OrderBuyer
     public function setLegalRequisites(OrderLegalRequisites $requisites): self;
 
     public function getPersonType(): string;
+
+    public function getEmail(): string;
 }

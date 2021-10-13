@@ -19,6 +19,10 @@ interface Order
 
     public function getId(): int;
 
+    /**
+     * Возвращает покупателя
+     * @return OrderBuyer
+     */
     public function getBuyer(): OrderBuyer;
 
     public function setDelivery(OrderDelivery $delivery): self;
