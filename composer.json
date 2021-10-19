@@ -18,6 +18,7 @@
     "require": {
         "php": "^8.0",
         "illuminate/contracts": "^8.37",
+        "illuminate/database": "^8.64",
         "katalinks/companyplaces": "dev-main",
         "katalinks/eshop-price-lists-laravel": "dev-main",
         "katalinks/person-type-laravel": "dev-main",

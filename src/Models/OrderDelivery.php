@@ -62,4 +62,9 @@ class OrderDelivery extends Model implements OrderDeliveryContract
 
         return $this;
     }
+
+    public function getPickUpOffice(): \KatalinKS\CompanyPlaces\Models\CompanyPlace
+    {
+        return $this->pickupPlace;
+    }
 }

@@ -72,4 +72,24 @@ class OrderBuyer extends Model implements OrderBuyerContract
     {
         return $this->requisites()->associate($requisites);
     }
+
+    public function getPersonType(): string
+    {
+        return $this->getEntity()->getName();
+    }
+
+    public function getEntity(): Entity
+    {
+        return $this->entity;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->getContact()->getEmail();
+    }
+
+    public function getContact(): OrderBuyerContact
+    {
+        return $this->contact;
+    }
 }

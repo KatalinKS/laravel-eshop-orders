@@ -6,8 +6,9 @@ use App\Models\Dictionary\OrderStatus;
 use App\Services\Eshop\Cart\Interfaces\Item\CartItemObj;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use \KatalinKS\Order\Contracts\OrderItem as OrderItemContract;
 
-class OrderItem extends Model
+class OrderItem extends Model implements OrderItemContract
 {
     use HasFactory;
 
@@ -38,5 +39,10 @@ class OrderItem extends Model
         ];
 
         return new self($data);
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
     }
 }

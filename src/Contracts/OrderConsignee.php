@@ -6,5 +6,5 @@ interface OrderConsignee
 {
     public function getId(): int;
 
-    public function toArray(): array;
+    public function toArray();
 }

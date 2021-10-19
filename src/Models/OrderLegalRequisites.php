@@ -4,8 +4,9 @@ namespace KatalinKS\Order\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use \KatalinKS\Order\Contracts\OrderLegalRequisites as OrderLegalRequisitesContract;
 
-class OrderLegalRequisites extends Model
+class OrderLegalRequisites extends Model implements OrderLegalRequisitesContract
 {
     use HasFactory;
 
@@ -18,4 +19,9 @@ class OrderLegalRequisites extends Model
         'phone',
         'fax',
     ];
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
 }

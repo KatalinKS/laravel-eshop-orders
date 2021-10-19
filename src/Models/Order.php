@@ -6,8 +6,11 @@ use App\Models\Company\CompanyPlace;
 use App\Models\Company\Manager;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use KatalinKS\Order\Contracts\OrderAdditional;
 use KatalinKS\Order\Contracts\OrderBuyer;
 use KatalinKS\Order\Contracts\OrderDelivery;
+use KatalinKS\Order\Contracts\OrderPayment;
+use KatalinKS\PriceList\Interfaces\Objects\PriceListObj;
 use KatalinKS\PriceList\Models\PriceList;
 
 class Order extends Model implements \KatalinKS\Order\Contracts\Order
@@ -146,5 +149,35 @@ class Order extends Model implements \KatalinKS\Order\Contracts\Order
     public function setDelivery(OrderDelivery $delivery): \KatalinKS\Order\Contracts\Order
     {
         return $this->delivery()->associate($delivery);
+    }
+
+    public function setAdditional(OrderAdditional $additional): \KatalinKS\Order\Contracts\Order
+    {
+         $this->additional()->associate($additional);
+    }
+
+    public function setPayment(OrderPayment $payment): \KatalinKS\Order\Contracts\Order
+    {
+        $this->payment()->associate($payment);
+    }
+
+    public function getOffice(): \KatalinKS\CompanyPlaces\Interfaces\CompanyPlace
+    {
+        return $this->office;
+    }
+
+    public function getPickUpOffice(): ?\KatalinKS\CompanyPlaces\Interfaces\CompanyPlace
+    {
+        return $this->getDelivery()->getPickUpOffice();
+    }
+
+    public function getPriceList(): PriceListObj
+    {
+        return $this->priceList;
+    }
+
+    public function getDelivery(): OrderDelivery
+    {
+        return $this->delivery;
     }
 }

@@ -4,8 +4,9 @@ namespace KatalinKS\Order\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use \KatalinKS\Order\Contracts\OrderConsignee as OrderConsigneeContract;
 
-class OrderConsignee extends Model
+class OrderConsignee extends Model implements OrderConsigneeContract
 {
     use HasFactory;
     protected $fillable = [
@@ -13,4 +14,9 @@ class OrderConsignee extends Model
         'inn',
         'kpp',
     ];
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
 }

@@ -4,8 +4,9 @@ namespace KatalinKS\Order\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use \KatalinKS\Order\Contracts\OrderBuyerContact as OrderBuyerContactContract;
 
-class OrderBuyerContact extends Model
+class OrderBuyerContact extends Model implements OrderBuyerContactContract
 {
     use HasFactory;
 
@@ -17,4 +18,9 @@ class OrderBuyerContact extends Model
     ];
 
     public $timestamps = false;
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
 }
