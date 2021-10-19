@@ -6,7 +6,7 @@ use App\Models\Dictionary\OrderStatus;
 use App\Services\Eshop\Cart\Interfaces\Item\CartItemObj;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use \KatalinKS\Order\Contracts\OrderItem as OrderItemContract;
+use KatalinKS\Order\Contracts\OrderItem as OrderItemContract;
 
 class OrderItem extends Model implements OrderItemContract
 {

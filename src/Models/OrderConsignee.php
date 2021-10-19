@@ -4,7 +4,7 @@ namespace KatalinKS\Order\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use \KatalinKS\Order\Contracts\OrderConsignee as OrderConsigneeContract;
+use KatalinKS\Order\Contracts\OrderConsignee as OrderConsigneeContract;
 
 class OrderConsignee extends Model implements OrderConsigneeContract
 {

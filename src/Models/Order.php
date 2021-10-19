@@ -153,7 +153,7 @@ class Order extends Model implements \KatalinKS\Order\Contracts\Order
 
     public function setAdditional(OrderAdditional $additional): \KatalinKS\Order\Contracts\Order
     {
-         $this->additional()->associate($additional);
+        $this->additional()->associate($additional);
     }
 
     public function setPayment(OrderPayment $payment): \KatalinKS\Order\Contracts\Order

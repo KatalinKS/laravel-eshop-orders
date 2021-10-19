@@ -4,7 +4,7 @@ namespace KatalinKS\Order\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use \KatalinKS\Order\Contracts\OrderBuyerContact as OrderBuyerContactContract;
+use KatalinKS\Order\Contracts\OrderBuyerContact as OrderBuyerContactContract;
 
 class OrderBuyerContact extends Model implements OrderBuyerContactContract
 {

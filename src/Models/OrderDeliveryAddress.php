@@ -4,7 +4,7 @@ namespace KatalinKS\Order\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use \KatalinKS\Order\Contracts\OrderDeliveryAddress as OrderDeliveryAddressContract;
+use KatalinKS\Order\Contracts\OrderDeliveryAddress as OrderDeliveryAddressContract;
 
 class OrderDeliveryAddress extends Model implements OrderDeliveryAddressContract
 {

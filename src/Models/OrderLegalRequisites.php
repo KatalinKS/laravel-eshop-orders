@@ -4,7 +4,7 @@ namespace KatalinKS\Order\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use \KatalinKS\Order\Contracts\OrderLegalRequisites as OrderLegalRequisitesContract;
+use KatalinKS\Order\Contracts\OrderLegalRequisites as OrderLegalRequisitesContract;
 
 class OrderLegalRequisites extends Model implements OrderLegalRequisitesContract
 {
